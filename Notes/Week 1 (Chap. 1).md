@@ -1,0 +1,130 @@
+- <strong><u>Operating System</u></strong> - manages computer's hardware.
+	- acts as go-between user and computer hardware.
+# 1.1 - OS
+- computer system can be divided into 4 parts 
+	-<strong><u> hardware</u></strong>
+		- CPU, memory, IO devices
+		- provides the computing resources
+	- <strong><u>OS</u></strong>
+		- controls the hardware and coordinates them across the application programs.
+	- <strong><u>application programs</u></strong>
+		- Microsoft Word, browsers, compilers
+		- provides a way for user to use the computing resources to solve their problems.
+- <strong>User view</strong> of computer varies depending on the computer
+	- some may have a screen, keyboard, mouse
+	- some are now phones, with touchscreens
+	- others have little to no user view/interaction like embedded computers in devices
+- <strong>System view</strong> of computer
+	- the OS acts as the resource allocator, it decides how to allocate resources to programs efficiently
+	- the OS is a<strong> <u>control program</u> </strong> - <u></u>it manages execution of user programs to prevent errors.
+- <strong><u>kernel</u></strong> - the program running at all times on a computer.
+- <strong><u>middleware</u></strong> - a set of software frameworks that provide additional services to application developers.
+
+# 1.2 - Computer System Arch.
+- modern general purpose computer:
+	- has 1+ CPUs and device controllers connected through a <strong><u>bus</u></strong> - communication system that transfers data between components
+- <strong><u>Device controller</u></strong>
+	- in charge of specific type of device (USB controller)
+	- moves data between peripheral devices that it controls, and local buffer storage.
+- <strong><u>Device driver</u></strong>
+	- each device controller has one
+	- understands the device controller, creates interface between OS and device.
+		- provides access to the device
+- <strong>Interrupts</strong>
+	- An event that occurs that interrupts the current CPU computation (for example, external events like a mouse click)
+	- when CPU is interrupted:
+		- stops whatever it is doing
+		- transfers execution (jumps to) a location that contains the service routine (interrupt handler) for the interrupt.
+		- executes the service routine
+		- on completion, CPU resumes the interrupted computation.
+		- [ELI5](https://cs.stackexchange.com/a/1703)
+	- interrupts need to happen quickly.
+		- need to know which service routine to run when an interrupt is signaled.
+		- table of pointers to<strong><u> interrupt vectors</u></strong> - which points to the service routine.
+	- <strong><u>interrupt-controller hardware</u></strong> - provide additional features along with CPU such as: 
+		- deferring an interrupt when the CPU is executing something critical
+		- method of distinguishing between high level and low level interrupts.
+	- <strong><u>maskable interrupt</u></strong> - interrupts that can be ignored by CPU, used by device controllers
+	- <strong><u>nonmaskable interrupt</u></strong> - interrupts that can not be ignored by CPU, for things like unrecoverable memory errors.
+	- <strong><u>interrupt chaining</u></strong> - a compromise between a interrupt vector and a routine that would have to search all the interrupt handlers
+		- each element in the vector puts to the head of a list containing handlers (reminds me of hash collision handling with a linked list.)
+- <strong>Storage Structure</strong>
+	- CPU can only load programs/instructions from memory.
+	- <strong><u>RAM (random access memory)</u></strong> - rewriteble memory that computers use to run most of their programs.
+		- ram is <strong><u>volatile</u></strong> -  loses its content when turned off.
+	- <strong><u>EEPROM (electrically erasable programmable read-only memory)</u></strong>
+		- nonvolatile
+		- used to store things like <strong><u>bootstrap program</u></strong> - first program to run when computer  is turned on, which then loads OS.
+	- All memory provides an array of bytes (1 byte = 8 bit). Each byte has an address.
+		- <strong><u>load</u></strong> - moves byte from main memory to CPU register
+		- <strong><u>store</u></strong> - moves from register to main memory.
+	- <strong><u>secondary storage</u></strong> - holds larger amounts of data to be stored permanently.
+		- used to store programs and data
+		- <strong>hard disk drives (HDDs)</strong>
+		- <strong>NVMs (nonvolatile memory device )</strong>
+	- <strong><u>tertiary storage</u></strong>
+		- slower and cheaper than memory or secondary storage
+		- optical or tape
+	- ![[Screen Shot 2022-09-07 at 23.54.10.png]]
+
+# 1.3 - Clustered Systems
+- <strong><u>processor</u></strong> - chip with 1+ CPUs.
+- <strong><u>CPU core</u></strong> - component that executes instructions and registers.
+- <strong><u>multiprocessor system</u></strong> - hardware system 2+ processors, each with a single core.
+	- <strong><u>multicore</u></strong> - multiple cores on a single chip
+		- efficient because chip-on-chip communication is faster.
+		- less power usage
+- <strong><u>SMP (symmetric multiprocessing)</u></strong> - each CPU performs all tasks
+	- ![[Screen Shot 2022-09-08 at 00.40.05.png]]
+	- processes can run in parallel
+- [ <strong><u>clustered system</u></strong>](https://en.wikipedia.org/wiki/Computer_cluster)- set of systems (computers) that work together as one
+	- they gather individual systems with CPUs as nodes.
+	- used to provide<strong><u> high availability service</u></strong> - will work if one or more clusters fail.
+	- <strong><u>asymmetric</u></strong> - one machine is in standby mode, monitoring the active one and becomes the active one if the other fails
+	- <strong><u>symmetric</u></strong> - 2+ systems are running and monitoring each other.
+	- <strong><u>parallezation</u></strong> - software dev technique that divides the program into separate components so it can be run in parallel on individual computers/cores in the cluster
+
+
+# 1.4 - OS Operations
+- <strong><u>Multiprogramming</u></strong> -  technique to increase CPU utilization by organizing the jobs to that the CPU is constantly executing something.
+	- OS keeps several <strong><u>processes</u></strong> - programs in execution, in memory at the same time.
+	- Whenever the process has to wait, the CPU switches over to another process continuously. The CPU  is never idle.
+	- <strong><u>multitasking</u></strong> - CPU executes multiple processes by switching between them really fast, so to the user, multiple programs running at the same time have a fast response time.
+- <strong><u>Dual Mode/Multimode</u></strong>
+	- OS needs a way to know if the code it's executing is user code or OS code to protect itself from incorrect or malicious code.
+	- <strong>2 necessary modes</strong>
+		- <strong><u>User mode</u></strong> - CPU mode for executing user instructions, some instructions are disabled or limited.
+		- <strong><u>Kernel mode</u></strong> - mode that kernel runs in, all instructions are allowed.
+		- <strong><u>mode bit</u></strong> - 0 or 1 added to indicate kernel or user, respectively.
+	- <strong><u>Privileged instructions</u></strong> - potentially harmful instructions that can only be run in kernel mode.
+		- switching to kernel mode
+		- interrupt management
+- <strong><u>Timer</u></strong>
+	- hardware component that interrupts the CPU after a set amount of time
+	- Allows the OS maintains control of CPU and that user programs to cause the CPU to get stuck (infinite loops, etc.)
+
+# 1.5 -  Resource Management
+- <strong><u>File System Managment</u></strong> 
+	- <strong><u>file</u></strong> - logical storage unit. collection of related info.
+		- an abstraction of the physical properties of the storage device.
+		- OS maps files onto the physical media (does a file represent a literal physical location on a drive?)
+		- represent data and programns.
+		- usually stored in <strong>directories</strong> (folders)
+		- the OS is responsible for: 
+			- creating/deleting files.
+			- creating/deleting directories.
+			- mapping files onto mass storage.
+- <strong><u>Cache Management</u></strong>
+	- <strong><u>caching</u></strong> - use of temporary data storage to improve performance.
+	- information that is being used is kept into a fast storage area.
+	- When the computer needs a  piece of information, it checks if it's in the storage.
+		- If so, pull that directly
+		- If not, compute the needed information, and put it into the cache.
+
+- <strong><u>Virtualization</u></strong> - abstracting hardware of computer (CPU, memory, etc) into different execution environments to create illusion that it's running on it's own computer.
+	- can be viewed as different OS's.
+	- allows users to run programs within different OS's.
+	- <strong><u>Emulation</u></strong> - simulating hardware in software
+		- usually used when source CPU is different than target CPU.
+		- machine-level instructions for one CPU need to be translated into the other, so it's slow
+	

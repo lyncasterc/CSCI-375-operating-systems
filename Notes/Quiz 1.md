@@ -1,0 +1,60 @@
+- <strong> The CPU catches the interrupt and ____ it to the interrupt handler</strong>
+	- dispatches 
+- <strong>Which of the following is nonvolatile?</strong>
+	- HDD
+- <strong> Which of the following is tertiary storage medium?</strong>
+	- magnetic tapes
+- <strong> Which of the following storage medium is the slowest regarding access speed?</strong>
+	- SSD (solid state drive)
+- <strong>Which of the following is the definition of processor?</strong>
+	- a physical chip that contains one or more CPUs
+- <strong>Where is the location of L1 cache?</strong>
+	- inside CPU core
+- <strong>Which of the following statements is incorrect?</strong>
+	- Operating systems always provide both command line as well as graphical user interfaces.
+-  <strong>Which of the following is an inter-process communication that requires two processes share memory?</strong>
+	- shared memory
+- <strong>Which of the following is not an operating system service?</strong>
+	- graphical user interface
+- <strong>Which of the following is a user interface where human fingers slide across the screen or press buttons to select choices?</strong>
+	- touch screen
+- <strong>In what way is an operating system like a government?</strong>
+	- it creates an environment within which other programs can do useful work.
+- <strong>Which of the following components of a computer system defines the ways to use system resources to solve computing problems?</strong>
+	- applications programs
+-  ____ operating systems are designed primarily to maximize resource utilization.
+	- mainframe
+- <strong>Which of the following is not a type of command interpreter?</strong>
+	- KDE or GNOME
+- <strong>_____ provide(s) an interface to the services provided by an operating system.</strong>
+	- system calls
+- <strong>Which of the following is the only gateway between user space and kernel space?</strong>
+	- system call
+- <strong>What category of system call includes the ones for process creation of and termination?</strong>
+	- process control
+- <strong>Which of the following defines the view of the operating system seen by most users?</strong>
+	- applications and systems programs
+- <strong>The Windows CreateProcess() system call creates a new process. What is the equivalent system call in UNIX?</strong>
+	- `fork()`
+- <strong>The close() system call in UNIX is used to close a file. What is the equivalent system call in Windows?</strong>
+	- `CloseHandle()`
+- <strong>The Windows CreateFile() system call is used to create a file. What is the equivalent system call in UNIX?</strong>
+	- `open()`
+- <strong>Microkernels use _____ for communication.</strong>
+	- message passing
+- <strong>Android runs Java programs _____________</strong>
+	- in the Android RunTime (ART) virtual machine
+- ______ <strong>___ is a mobile operating system designed for the iPhone and iPad.</strong>
+	- iOS
+- <strong>Which of the following programs runs all the time on the computer?</strong>
+	- kernel
+- <strong>Which of the following will trigger an interrupt?</strong>
+	- IO Completion
+- <strong>Which of the following is NOT secondary storage device?</strong>
+	- RAM
+- <strong>Which of the following contains the addresses of all the service routines?</strong>
+	- interrupt vector
+- <strong>Which of the following stage triggers the CPU switch from user program to interrupt processing?</strong>
+	- interrupt signaled
+- <strong>The device controller  _____ an interrupt by asserting a signal on the interrupt request line.</strong>
+	- raises
