@@ -1,0 +1,52 @@
+- <strong>Which of the following contains dynamically allocated data during program run time?</strong>
+	- Heap
+- <strong>Which of the following structures defines the process control block for Linux system?</strong>
+	- `task_struct`
+- <strong>What is the degree of multiprogramming for a single-processor system?</strong>
+	- 1
+- <strong>Which of the following cases could force a process removed from the CPU?</strong>
+	- all of the above 
+- <strong>The list of processes waiting to execute on a CPU is called a(n) ____.</strong>
+	- ready queue
+- I<strong>f process P0 is switched to process P1, state for P0 will be saved into ____, and state from ___ will be reloaded?</strong>
+	- PCB0, PCB1
+- <strong>Which of the following items are shared across multiple threads belonging to the same process?</strong>
+	- code, data, files
+- <strong> In a multithreaded server architecture, which of the following is used to service a new user request?</strong>
+	- new thread created
+- <strong>Which of the following benefits go to multithreaded programming?</strong>
+	- all of the above
+- <strong>Which of the following refers to the capability to allow multiple tasks make progress on a single processor system?</strong>
+	- concurrency
+- <strong>Which of the following contains the executable code?</strong>
+	- text section
+- <strong>_________ is a formula that identifies potential performance gains from adding additional computing cores to an application that has a parallel and serial component.</strong>
+	- Ahmdals law
+- <strong>_____ is not considered a challenge when designing applications for multicore systems.</strong>
+	- Ensuring there is a sufficient number of cores.
+- <strong>Which of the following models are possible for the relationship between the user threads and kernel threads?</strong>
+	- all of the above
+- ____ is a thread library for Solaris that maps many user-level threads to one kernel thread.
+	- green threads
+- <strong>The _____ model maps each user-level thread to one kernel thread.</strong>
+	- one to one
+- <strong>The _____ model multiplexes many user-level threads to a smaller or equal number of kernel threads.</strong>
+	- many to many
+- <strong> Which of the following is a function that can be provided by Pthreads API for constructing a multithreaded program?</strong>
+	- all of the above
+- <strong>In Pthreads, a parent uses the pthread_join() function to wait for its child thread to complete. What is the equivalent function in Win32?</strong>
+	- waitforsingleobject
+- <strong>Which of the following is a method for implicit threading?</strong>
+	- all of the above
+- <strong>Which of the following implicit threading methodology involves dispatch queues?</strong>
+	- grand central dispatch
+- <strong>Which of the following contains global data?</strong>
+	- data section
+- <strong>Which of the following options exist to deliver signals in multithreaded program?</strong>
+	- all of the above
+- <strong>Which of the following contains memory allocated by _malloc()_?</strong>
+	- malloc
+- <strong>Which of the following memory space dynamically grows from high memory to low memory?</strong>
+	- stack
+- <strong>Which of the following data structure is used to manage the processes in Linux?</strong>
+	- linked list
